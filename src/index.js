@@ -11,11 +11,10 @@ export const DEFAULT_PIXABAY_PARAMS = {
   safesearch: 'true',
 };
 
-async function pingPixabay({ q = '', page = '1' }) {
+async function pingPixabay({ q = '' }) {
   try {
     const querystring = new URLSearchParams({
       ...DEFAULT_PIXABAY_PARAMS,
-      page,
       q,
     });
 
@@ -36,7 +35,7 @@ searchForm.dispatchEvent(new Event('submit'));
 
 async function searchForPhotos(e) {
   e.preventDefault();
-  const photos = await pingPixabay({ q, page: '1' });
+  const photos = await pingPixabay({ q });
   // e.target.page.value = '1';
   // const q = e.target.q.value;
 
