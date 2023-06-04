@@ -5,23 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./script/main.js"></script>
   </head>
   <body>
-    <header>
-      <form class="search-form" id="search-form">
-        <input
-          id="search-box"
-          type="text"
-          name="searchQuery"
-          autocomplete="off"
-          placeholder="Search images..."
-        />
-        <button class="button" type="submit">Search</button>
-      </form>
-    </header>
-    <!-- 
-  <div id="photos" class="photos"></div>
-</div> -->
+    <form class="search-form" id="search-form">
+      <input hidden name="page" type="number" value="1" />
+      <input
+        class="search-input"
+        name="q"
+        placeholder="search for photos"
+        value=""
+      />
+      <button class="button" type="submit" hidden>Search</button>
+    </form>
+
+    <div id="photos" class="photos"></div>
   </body>
 </html>
