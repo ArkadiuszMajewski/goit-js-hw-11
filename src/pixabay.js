@@ -1,5 +1,6 @@
 import { API_PATH, DEFAULT_PIXABAY_PARAMS } from './config.js';
 import Notiflix from 'notiflix';
+const axios = require('axios');
 
 export default async function pingPixabay({ q = '', page = '1' }) {
   try {
@@ -12,18 +13,18 @@ export default async function pingPixabay({ q = '', page = '1' }) {
     const response = await fetch(`${API_PATH}?${querystring}`, {
       mode: 'cors',
     });
+
     if (!response.ok) {
-      if (response.status === 400) {
-        return [];
-      }
       return { error: response.status };
     }
+    console.log(response);
     const { hits: photos } = await response.json();
+    console.log(photos);
     if (photos.length === 0) {
-      return;
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
+      return;
     }
     return photos;
   } catch (e) {
@@ -34,6 +35,6 @@ export default async function pingPixabay({ q = '', page = '1' }) {
 const buttonLoadMore = document.querySelector('.load-more');
 buttonLoadMore.addEventListener('click', buttonLoad);
 async function buttonLoad(e, page) {
-  console.log('asdsad');
-  return (page = '22');
+  // console.log('asdsad');
+  return;
 }

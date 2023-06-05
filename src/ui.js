@@ -1,5 +1,5 @@
 import pingPixabay from './pixabay.js';
-import Notiflix from 'notiflix';
+
 const gallery = document.querySelector('.gallery');
 // console.log(gallery);
 
@@ -9,12 +9,7 @@ function drawPhotos({ photos, page }) {
   if (page === '1') {
     photoContainer.innerHTML = '';
   }
-  if (photos === undefined) {
-    Notiflix.Notify.failure(
-      "We're sorry, but you've reached the end of search results."
-    );
-    return;
-  }
+
   photos.forEach(element => {
     const div = document.createElement('div');
     div.classList.add('photo-card');
