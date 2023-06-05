@@ -1,5 +1,8 @@
 import { loadPhotos } from './ui.js';
 
+const serch = document.querySelector('#serch');
+// console.log(serch);
+let q = '';
 const buttonLoadMore = document.querySelector('.load-more');
 let page = '';
 export async function searchForPhotos(e) {
@@ -8,8 +11,10 @@ export async function searchForPhotos(e) {
   // e.target.page.value = '1';
 
   const q = e.target.searchQuery.value;
+  console.log(q);
   await loadPhotos({ q, page: '1' });
   buttonLoadMore.removeAttribute('hidden');
+  return (page = 1), q;
 }
 
 // export async function scrollHandler() {
@@ -22,6 +27,10 @@ export async function searchForPhotos(e) {
 //   }
 // }
 buttonLoadMore.addEventListener('click', buttonLoad);
+
 async function buttonLoad(e) {
-  console.log('asdsad');
+  const q = serch.value;
+  // console.log(q);
+  page = page + 1;
+  await loadPhotos({ q, page });
 }

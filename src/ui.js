@@ -1,5 +1,5 @@
 import pingPixabay from './pixabay.js';
-
+import Notiflix from 'notiflix';
 const gallery = document.querySelector('.gallery');
 // console.log(gallery);
 
@@ -8,6 +8,12 @@ function drawPhotos({ photos, page }) {
   const photoContainer = document.querySelector('.gallery');
   if (page === '1') {
     photoContainer.innerHTML = '';
+  }
+  if (photos === undefined) {
+    Notiflix.Notify.failure(
+      "We're sorry, but you've reached the end of search results."
+    );
+    return;
   }
   photos.forEach(element => {
     const div = document.createElement('div');
@@ -42,7 +48,7 @@ function drawPhotos({ photos, page }) {
 
 export async function loadPhotos({ q, page }) {
   const photos = await pingPixabay({ q, page });
-  if (photos.length === 0) {
+  if (photos === 0) {
     return;
   }
   drawPhotos({ photos, page });

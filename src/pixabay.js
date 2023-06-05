@@ -19,7 +19,8 @@ export default async function pingPixabay({ q = '', page = '1' }) {
     }
     const { hits: photos } = await response.json();
     if (photos.length === 0) {
-      return Notiflix.Notify.failure(
+      return;
+      Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
     }
