@@ -1,57 +1,87 @@
 // @import './common';
-// @import './example';
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-  }
-  body {
-    background-color: black;
-    font-size: 16px;
-  }
-  .container {
-    max-width: 1280px;
-  }
-  .photos {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .photo {
-    width: calc(100% / 5);
-    transition: box-shadow 0.5s, transform 0.5s;
-    position: relative;
-    z-index:0;
-  } 
-  
-  .photo:hover{
-      transform: perspective(400px) scale(120%) rotateY(15deg);
-      box-shadow: 0px 0px 24px 5px black;
-      z-index:1
-  }
-  
-  .search-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 16px;
-    width: 100%;
-  }
-  
-  .search-input {
-    width: 30%;
-    text-align: center;
-    display: block;
-    background-color: black;
-    padding: 10px 50px;
-    color: white;
-    border: 1px solid yellow;
-    border-radius: 10px;
-  }
-  header{
-    background-color: rgba(84, 84, 194, 0.715);
-    width: 100%;
-    height: 50px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+body {
+  background-color: rgb(41, 41, 41);
+  font-size: 16px;
+}
+.container {
+  max-width: 1280px;
+}
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo {
+  width: calc(100% / 5);
+  transition: box-shadow 0.5s, transform 0.5s;
+  position: relative;
+  z-index: 0;
+}
+
+.photo:hover {
+  transform: perspective(400px) scale(120%) rotateY(15deg);
+  box-shadow: 0px 0px 24px 5px black;
+  z-index: 1;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  width: 100%;
+}
+
+.search-input {
+  width: 30%;
+  text-align: center;
+  display: block;
+  background-color: black;
+  padding: 10px 50px;
+  color: white;
+  border: 1px solid yellow;
+  border-radius: 10px;
+}
+header {
+  background-color: rgba(84, 84, 194, 0.715);
+  width: 100%;
+  height: 50px;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  gap: 10px;
+}
+.photo-card img {
+  width: 200px;
+  height: 200px;
+  column-gap: 20px;
+}
+
+.photo-card {
+  position: relative;
+}
+.info {
+  height: 30px;
+  background-color: rgb(169, 161, 161);
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+}
+.info-item {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 50px;
+}
+.load-more {
+  margin-left: 50%;
+}
