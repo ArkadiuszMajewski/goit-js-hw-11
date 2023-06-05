@@ -1,4 +1,4 @@
-import { searchForPhotos, scrollHandler } from './handlers.js';
+import { searchForPhotos } from './handlers.js';
 
 const searchForm = document.querySelector('#search-form');
 
