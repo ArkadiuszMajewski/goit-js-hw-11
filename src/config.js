@@ -1,5 +1,5 @@
 export const API_PATH = 'https://pixabay.com/api';
-export const API_KEY = '<API_KEY>';
+export const API_KEY = '36819144-796cb24dbda7f1c215c0374a0';
 
 export const DEFAULT_PIXABAY_PARAMS = {
   key: API_KEY,
