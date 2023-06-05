@@ -1,5 +1,6 @@
 import { API_PATH, DEFAULT_PIXABAY_PARAMS } from './config.js';
 import Notiflix from 'notiflix';
+
 let page = '';
 
 export default async function pingPixabay({ q = '', page = '1' }) {
@@ -10,7 +11,7 @@ export default async function pingPixabay({ q = '', page = '1' }) {
       q,
     });
 
-    const response = await fetch(`${API_PATH}?${querystring}`);
+    const response = await fetch(`${API_PATH}?${querystring}{mode: "cors"}`);
     if (!response.ok) {
       if (response.status === 400) {
         return [];
