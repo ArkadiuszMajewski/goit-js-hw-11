@@ -56,12 +56,16 @@ export default async function pingPixabay({ page = '1', q = '' }) {
     const photos = await response.data.hits;
     totalHits = response.data.totalHits;
     console.log(totalHits);
-    return totalHits, photos;
+    return (
+      totalHits,
+      Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`),
+      photos
+    );
   } catch (error) {
     console.log('error');
   }
 }
-console.log(totalHits);
+
 // const buttonLoadMore = document.querySelector('.load-more');
 // buttonLoadMore.addEventListener('click', buttonLoad);
 // async function buttonLoad(e, page) {
