@@ -44,7 +44,7 @@ export default async function pingPixabay({ page = '1', q = '' }) {
       `${API_PATH}?${querystring}`
       // {mode: 'cors'},
     );
-    console.log(response);
+    // console.log(response);
     if (response.status > 400) {
       return console.log('error: response.status');
     }
@@ -55,12 +55,8 @@ export default async function pingPixabay({ page = '1', q = '' }) {
     }
     const photos = await response.data.hits;
     totalHits = response.data.totalHits;
-    console.log(totalHits);
-    return (
-      totalHits,
-      Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`),
-      photos
-    );
+    // console.log(totalHits);
+    return totalHits, photos;
   } catch (error) {
     console.log('error');
   }

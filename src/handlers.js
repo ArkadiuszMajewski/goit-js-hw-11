@@ -12,6 +12,7 @@ export async function searchForPhotos(e) {
   // console.log(e.target.searchQuery.value);
   await loadPhotos({ q, page: '1' });
   buttonLoadMore.removeAttribute('hidden');
+  Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
   return (page = 1), q;
 }
 
@@ -27,5 +28,5 @@ async function buttonLoad(e) {
   }
   page = page + 1;
   await loadPhotos({ q, page });
-  console.log(pageCount);
+  // console.log(pageCount);
 }
